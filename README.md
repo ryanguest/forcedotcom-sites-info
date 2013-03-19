@@ -8,7 +8,7 @@ This page prints out the most common Visualforce and Apex variables that can be 
 Demo
 ----
 
-[https://sites-labs-demo-developer-edition.na9.force.com/demo][1]
+[https://sites-labs-demo-developer-edition.na9.force.com/demo?key1=value1&key2=value2][1]
 
 
-[1]: https://sites-labs-demo-developer-edition.na9.force.com/demo
+[1]: https://sites-labs-demo-developer-edition.na9.force.com/demo?key1=value1&key2=value2
