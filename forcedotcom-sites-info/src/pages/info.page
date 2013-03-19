@@ -1,0 +1,531 @@
+<apex:page showheader="false" standardStylesheets="false" controller="SiteInfo">
+<html><head> 
+
+<style type="text/css"> 
+body {background-color: #ffffff; color: #000000;}
+body, td, th, h1, h2 {font-family: sans-serif;}
+pre {margin: 0px; font-family: monospace;}
+a:link {color: #000099; text-decoration: none; background-color: #ffffff;}
+a:hover {text-decoration: underline;}
+table {border-collapse: collapse;}
+.center {text-align: center;}
+.center table { margin-left: auto; margin-right: auto; text-align: left;}
+.center th { text-align: center !important; }
+td, th { border: 1px solid #000000; font-size: 75%; vertical-align: baseline;}
+h1 {font-size: 150%;}
+h2 {font-size: 125%;}
+.p {text-align: center;}
+.e {background-color: #ccccff; font-weight: bold; color: #000000;}
+.h {background-color: #9999cc; font-weight: bold; color: #000000;}
+.v {background-color: #cccccc; color: #000000;}
+i {color: #666666; background-color: #cccccc;}
+img {float: right; border: 0px;}
+hr {width: 600px; background-color: #cccccc; border: 0px; height: 1px; color: #000000;}
+</style> 
+
+<title>Force.com Sites / Visualforce Info</title></head> 
+<body><div class="center"> 
+
+<table border="0" cellpadding="3" width="600"> 
+<tr class="h"><td class="p"> 
+<h1 class="p">Force.com Sites Debug Information</h1> 
+
+<br />
+Page Generated: &nbsp; <apex:outputText value="{!NOW()}" />
+</td></tr> 
+<tr>
+<td class="v">
+<br />
+This page prints out the most common Visualforce and Apex variables that can be used on a sites page, including the HTTP headers and request parameters. You can use this page as a listener for integrations, as a debugging tool, and also as a quick reference.
+
+<br /><br />
+Comments, suggestions, and feedback are more than welcome. Feel free to post them here: <a style="background-color: transparent;" href="http://boards.developerforce.com/t5/Force-com-Labs-Development-and/bd-p/labs" title="Force.com Labs Message Board">Force.com Labs Message Board</a>
+<br /><br /></td>
+</tr>
+</table><br /> 
+
+<!--- SITE Visualforce VARIABLES -->
+<h2> Site Visualforce Variables</h2>
+<table border="0" cellpadding="3" width="600"> 
+<TR>
+          <TD class="e"> &#123;!$Site.Domain&#125; </TD>
+          <TD class="v"> {!$Site.Domain} </TD>
+        </TR>
+        
+        <TR>
+          <TD class="e">  &#123;!$Site.CustomWebAddress&#125; </TD>
+          <TD class="v"> {!$Site.CustomWebAddress} </TD>
+        </TR>        
+        
+        <TR>
+          <TD class="e"> &#123;!$Site.OriginalUrl&#125; </TD>
+          <TD class="v"> {!$Site.OriginalUrl} </TD>
+        </TR>
+        
+        <TR>
+          <TD class="e"> &#123;!$Site.CurrentSiteUrl&#125; </TD>
+          <TD class="v"> {!$Site.CurrentSiteUrl} </TD>
+        </TR>       
+          
+        <TR>
+          <TD class="e"> &#123;!$Site.LoginEnabled&#125; </TD>
+          <TD class="v"> {!$Site.LoginEnabled} </TD>
+        </TR>
+        
+        <TR>
+          <TD class="e"> &#123;!$Site.RegistrationEnabled&#125; </TD>
+          <TD class="v"> {!$Site.RegistrationEnabled} </TD>
+        </TR> 
+        
+        <TR>
+          <TD class="e"> &#123;!$Site.IsPasswordExpired&#125; </TD>
+          <TD class="v"> {!$Site.IsPasswordExpired}</TD>
+        </TR>
+        
+        <TR>
+          <TD class="e"> &#123;!$Site.AdminEmailAddress&#125; </TD>
+          <TD class="v"> {!$Site.AdminEmailAddress} </TD>
+        </TR> 
+        
+        <TR>
+          <TD class="e"> &#123;!$Site.Prefix&#125; </TD>
+          <TD class="v"> {!$Site.Prefix} </TD>
+        </TR>         
+        
+        <TR>
+          <TD class="e"> &#123;!$Site.Template&#125; </TD>
+          <TD class="v"> {!$Site.Template} </TD>
+        </TR>
+        
+        <TR>
+          <TD class="e"> &#123;!$Site.ErrorMessage&#125; </TD>
+          <TD class="v"> {!$Site.ErrorMessage} </TD>
+        </TR>
+        
+        <TR>
+          <TD class="e"> &#123;!$Site.ErrorDescription&#125; </TD>
+          <TD class="v"> {!$Site.ErrorDescription} </TD>
+        </TR>  
+</table>
+
+<br />
+<br />
+<br />
+
+<!--- Site Apex Variables -->
+<h2> Site Apex Variables </h2>
+<table border="0" cellpadding="3" width="600">     
+    <TR>
+        <TD class="e"> Site.getCurrentSiteUrl(); </TD>
+        <TD class="v"> <apex:outputText escape="false" value="{!CurrentSiteUrl}" /> </TD>
+    </TR>
+    <TR>
+        <TD class="e"> Site.getCustomWebAddress(); </TD>
+        <TD class="v"> <apex:outputText escape="false" value="{!CustomWebAddress}" /> </TD>
+    </TR>
+    <TR>
+        <TD class="e"> Site.getDomain(); </TD>
+        <TD class="v"> <apex:outputText escape="false" value="{!Domain}" /> </TD>
+    </TR>
+    <TR>
+        <TD class="e"> Site.getErrorDescription(); </TD>
+        <TD class="v"> <apex:outputText escape="false" value="{!ErrorDescription}" /> </TD>
+    </TR>
+    <TR>
+        <TD class="e"> Site.getErrorMessage(); </TD>
+        <TD class="v"> <apex:outputText escape="false" value="{!ErrorMessage}" /> </TD>
+    </TR>
+    <TR>
+        <TD class="e"> Site.getName(); </TD>
+        <TD class="v"> <apex:outputText escape="false" value="{!Name}" /> </TD>
+    </TR>
+    <TR>
+        <TD class="e"> Site.getOriginalUrl(); </TD>
+        <TD class="v"> <apex:outputText escape="false" value="{!OriginalUrl}" /> </TD>
+    </TR>
+    <TR>
+        <TD class="e"> Site.getPrefix(); </TD>
+        <TD class="v"> <apex:outputText escape="false" value="{!Prefix}" /> </TD>
+    </TR>
+    <TR>
+        <TD class="e"> Site.getTemplate(); </TD>
+        <TD class="v"> <apex:outputText escape="false" value="{!Template}" /> </TD>
+    </TR>
+    <TR>
+        <TD class="e"> Site.isLoginEnabled(); </TD>
+        <TD class="v"> <apex:outputText escape="false" value="{!isLoginEnabled}" /> </TD>
+    </TR>
+    <TR>
+        <TD class="e"> Site.isPasswordExpired(); </TD>
+        <TD class="v"> <apex:outputText escape="false" value="{!isPasswordExpired}" /> </TD>
+    </TR>
+    <TR>
+        <TD class="e"> Site.isRegistrationEnabled(); </TD>
+        <TD class="v"> <apex:outputText escape="false" value="{!isRegistrationEnabled}" /> </TD>
+    </TR>
+
+</table> 
+
+<br />
+<br />
+<br />
+
+<!--- CURRENT PAGE Visualforce VARIABLES -->
+<h2> CurrentPage Visualforce Variables</h2>
+<table border="0" cellpadding="3" width="600"> 
+    <TR>
+        <TD class="e"> &#123;!$CurrentPage.Name&#125; </TD>
+        <TD class="v"> {!$CurrentPage.Name} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$CurrentPage.URL&#125; </TD>
+        <TD class="v"> {!$CurrentPage.URL} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$CurrentPage.parameters.id&#125; </TD>
+        <TD class="v"> {!$CurrentPage.parameters.id}</TD>
+    </TR>  
+</table>
+
+
+<br />
+<br />
+<br />
+
+<!--- ORGANIZATION Visualforce VARIABLES -->
+<h2> Organization Visualforce Variables</h2>
+<table border="0" cellpadding="3" width="600"> 
+    <TR>
+        <TD class="e"> &#123;!$Organization.Id&#125; </TD>
+        <TD class="v"> {!$Organization.Id} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$Organization.Name&#125; </TD>
+        <TD class="v"> {!$Organization.Name} </TD>
+    </TR> 
+    <TR>
+        <TD class="e"> &#123;!$Organization.Street&#125; </TD>
+        <TD class="v"> {!$Organization.Street} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$Organization.State&#125; </TD>
+        <TD class="v"> {!$Organization.State} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$Organization.City&#125; </TD>
+        <TD class="v"> {!$Organization.City} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$Organization.Country&#125; </TD>
+        <TD class="v"> {!$Organization.Country} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$Organization.Division&#125; </TD>
+        <TD class="v"> {!$Organization.Division} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$Organization.Phone&#125; </TD>
+        <TD class="v"> {!$Organization.Phone} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$Organization.Fax&#125; </TD>
+        <TD class="v"> {!$Organization.Fax} </TD>
+    </TR>
+
+</table>
+
+<br />
+<br />
+<br />
+
+<!--- PROFILE Visualforce VARIABLES -->
+<h2> Profile Visualforce Variables</h2>
+<table border="0" cellpadding="3" width="600"> 
+    <TR>
+        <TD class="e"> &#123;!$Profile.Id&#125; </TD>
+        <TD class="v"> {!$Profile.Id} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$Profile.Name&#125; </TD>
+        <TD class="v"> {!$Profile.Name} </TD>
+    </TR> 
+    
+</table>     
+     
+     
+<br />
+<br />
+<br />
+
+<!--- USER Visualforce VARIABLES -->
+<h2> User Visualforce Variables</h2>
+<table border="0" cellpadding="3" width="600"> 
+    <TR>
+        <TD class="e"> &#123;!$User.Username&#125; </TD>
+        <TD class="v"> {!$User.Username} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$User.Alias&#125; </TD>
+        <TD class="v"> {!$User.Alias} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$User.City&#125; </TD>
+        <TD class="v"> {!$User.City} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$User.CommunityNickname&#125; </TD>
+        <TD class="v"> {!$User.CommunityNickname} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$User.CompanyName&#125; </TD>
+        <TD class="v"> {!$User.CompanyName} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$User.Country&#125; </TD>
+        <TD class="v"> {!$User.Country} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$User.Department&#125; </TD>
+        <TD class="v"> {!$User.Department} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$User.Division&#125; </TD>
+        <TD class="v"> {!$User.Division} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$User.Email&#125; </TD>
+        <TD class="v"> {!$User.Email} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$User.EmployeeNumber&#125; </TD>
+        <TD class="v"> {!$User.EmployeeNumber} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$User.Extension&#125; </TD>
+        <TD class="v"> {!$User.Extension} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$User.Fax&#125; </TD>
+        <TD class="v"> {!$User.Fax} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$User.FirstName&#125; </TD>
+        <TD class="v"> {!$User.FirstName} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$User.IsActive&#125; </TD>
+        <TD class="v"> {!$User.IsActive} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$User.LastName&#125; </TD>
+        <TD class="v"> {!$User.LastName} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$User.ManagerId&#125; </TD>
+        <TD class="v"> {!$User.ManagerId} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$User.MobilePhone&#125; </TD>
+        <TD class="v"> {!$User.MobilePhone} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$User.Phone&#125; </TD>
+        <TD class="v"> {!$User.Phone} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$User.MobilePhone&#125; </TD>
+        <TD class="v"> {!$User.MobilePhone} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$User.PostalCode&#125; </TD>
+        <TD class="v"> {!$User.PostalCode} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$User.ProfileId&#125; </TD>
+        <TD class="v"> {!$User.ProfileId} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$User.State&#125; </TD>
+        <TD class="v"> {!$User.State} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$User.Street&#125; </TD>
+        <TD class="v"> {!$User.Street} </TD>
+    </TR>
+    <TR>
+        <TD class="e"> &#123;!$User.UserRoleId&#125; </TD>
+        <TD class="v"> {!$User.UserRoleId} </TD>
+    </TR>
+   
+</table>
+
+<br />
+<br />
+<br />
+
+<!--- APEX USERINFO VARIABLES -->
+<h2> Apex UserInfo Variables </h2>
+<table border="0" cellpadding="3" width="600">     
+        <tr>
+        <td class="e"> UserInfo.getDefaultCurrency(); </td>
+        <td class="v"> <apex:outputText escape="false" value="{!UserInfoDefaultCurrency}" /> </td>
+    </tr>
+    <tr>
+        <td class="e"> UserInfo.getFirstName(); </td>
+        <td class="v"> <apex:outputText escape="false" value="{!UserInfoFirstName}" /> </td>
+    </tr>
+    <tr>
+        <td class="e"> UserInfo.getLanguage(); </td>
+        <td class="v"> <apex:outputText escape="false" value="{!UserInfoLanguage}" /> </td>
+    </tr>
+    <tr>
+        <td class="e"> UserInfo.getLastName(); </td>
+        <td class="v"> <apex:outputText escape="false" value="{!UserInfoLastName}" /> </td>
+    </tr>
+    <tr>
+        <td class="e"> UserInfo.getLocale(); </td>
+        <td class="v"> <apex:outputText escape="false" value="{!UserInfoLocale}" /> </td>
+    </tr>
+    <tr>
+        <td class="e"> UserInfo.getName(); </td>
+        <td class="v"> <apex:outputText escape="false" value="{!UserInfoName}" /> </td>
+    </tr>
+    <tr>
+        <td class="e"> UserInfo.getOrganizationId(); </td>
+        <td class="v"> <apex:outputText escape="false" value="{!UserInfoOrganizationId}" /> </td>
+    </tr>
+    <tr>
+        <td class="e"> UserInfo.getOrganizationName(); </td>
+        <td class="v"> <apex:outputText escape="false" value="{!UserInfoOrganizationName}" /> </td>
+    </tr>
+    <tr>
+        <td class="e"> UserInfo.getProfileId(); </td>
+        <td class="v"> <apex:outputText escape="false" value="{!UserInfoProfileId}" /> </td>
+    </tr>
+    <tr>
+        <td class="e"> UserInfo.getSessionId(); </td>
+        <td class="v"> <apex:outputText escape="false" value="{!UserInfoSessionId}" /> </td>
+    </tr>
+    <tr>
+        <td class="e"> UserInfo.getUserId(); </td>
+        <td class="v"> <apex:outputText escape="false" value="{!UserInfoUserId}" /> </td>
+    </tr>
+    <tr>
+        <td class="e"> UserInfo.getUserName(); </td>
+        <td class="v"> <apex:outputText escape="false" value="{!UserInfoUsername}" /> </td>
+    </tr>
+    <tr>
+        <td class="e"> UserInfo.getUserRoleId(); </td>
+        <td class="v"> <apex:outputText escape="false" value="{!UserInfoUserRoleId}" /> </td>
+    </tr>
+    <tr>
+        <td class="e"> UserInfo.getUserType(); </td>
+        <td class="v"> <apex:outputText escape="false" value="{!UserInfoUserType}" /> </td>
+    </tr>
+    <tr>
+        <td class="e"> UserInfo.isMultiCurrencyOrganization(); </td>
+        <td class="v"> <apex:outputText escape="false" value="{!UserInfoMultiCurrencyOrganization}" /> </td>
+    </tr>
+
+</table> 
+
+<br />
+<br />
+<br />
+
+
+
+
+<!--- Visualforce MESSAGE TAG -->
+<h2> ApexPage Apex Variables</h2>
+<table border="0" cellpadding="3" width="600">     
+    <tr>
+        <TD class="e"> ApexPages.currentPage(); </TD>
+        <TD class="v"> <apex:outputText escape="false" value="{!CurrentPage}" /> </TD >
+    </tr>
+    
+     <tr>
+        <TD class="e"> ApexPages.hasMessages(); </TD >
+        <TD class="v"> <apex:outputText escape="false" value="{!HasMessages}" /> </TD >
+    </tr>
+    <tr>
+        <TD class="e"> ApexPages.getMessages(); </TD >
+        <TD class="v"> <apex:outputText escape="false" value="{!Messages}" /> </TD >
+    </tr> 
+    
+</table>         
+
+<br />
+<br />
+<br />
+
+<!--- HTTP Headers -->
+<h2> HTTP Headers </h2>
+<table border="0" cellpadding="3" width="600">  
+    <apex:repeat value="{!headers}" var="pair" id="theRepeat">
+    <TR>
+        <TD class="e"> ApexPages.currentPage().getHeaders().get('<apex:outputText value="{!pair.key}"/>') </TD> 
+        <TD class="v"> <apex:outputText value="{!pair.value}"/> </TD> 
+    </TR> 
+
+    </apex:repeat>
+    <TR>
+        <TD class="e"> ApexPages.currentPage().getHeaders().keySet() </TD> 
+        <TD class="v"> <apex:outputText value="{!headerKeys}"/> </TD> 
+    </TR>
+    <TR>
+        <TD class="e"> ApexPages.currentPage().getHeaders().values() </TD> 
+        <TD class="v"> <apex:outputText value="{!headerValues}"/> </TD> 
+    </TR>
+</table>
+<br />
+<br />
+<br />
+
+<!--- Parameters -->
+<h2> Request Parameters </h2>
+<table border="0" cellpadding="3" width="600">  
+ 
+          
+        
+        
+    <apex:repeat value="{!parameters}" var="pair">
+    <TR>
+        <TD class="e"> ApexPages.currentPage().getHeaders().get('<apex:outputText value="{!pair.key}"/>') </TD> 
+        <TD class="v"> <apex:outputText value="{!pair.value}"/> </TD> 
+    </TR> 
+    </apex:repeat>
+    <TR>
+        <TD class="e"> ApexPages.currentPage().getParameters().keySet() </TD> 
+        <TD class="v"> <apex:outputText value="{!parameterKeys}"/> </TD> 
+    </TR>
+    <TR>
+        <TD class="e"> ApexPages.currentPage().getParameters().values() </TD> 
+        <TD class="v"> <apex:outputText value="{!parameterValues}"/> </TD> 
+    </TR>
+
+    </table>
+    
+<br />
+<br />
+<br />
+
+<!--- MESSAGE COMPONENT -->
+<h2> Message Component</h2>
+<table border="0" cellpadding="3" width="600">     
+    <tr>
+        <TD class="e"> &#60;apex:messsage /&#62;  </TD>
+        <TD class="v"> <apex:message /> </TD >
+    </tr>
+        
+</table>  
+ 
+    
+    
+<hr /> 
+
+
+</div></body></html>
+
+
+</apex:page>
